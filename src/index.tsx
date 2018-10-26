@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { App } from './components/App'
 
-const ROOT = document.querySelector('.container');
+const ROOT = document.getElementById('container');
 
-ReactDOM.render(<h1>Hello!</h1>, ROOT);
+ReactDOM.render(<App name='Bon Jovi' />, ROOT);
