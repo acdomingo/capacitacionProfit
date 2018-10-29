@@ -1,8 +1,8 @@
-$backGround-grey: #f3f3f3f3;
+$backGround-pink: #8e6375;
 
 body {
     font-family: "Helvetica Neue", Helvetica, Arial, Sans-serif;
     font-size: 14 px;
     line-height: 1.3 rem;
-    background-color: backGround-grey;
+    background: $backGround-pink;
 }
