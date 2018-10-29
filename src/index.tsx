@@ -5,4 +5,4 @@ import './styles/style.scss'
 
 const ROOT = document.getElementById('container');
 
-ReactDOM.render(<App name='Bon Jovi' />, ROOT);
+ReactDOM.render(<App />, ROOT);
