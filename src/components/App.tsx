@@ -33,6 +33,13 @@ export class App extends React.Component<{}, IState> {
         })
     }
 
+    public toggleCompleted(i:number){
+        let task: ITask[] = this.state.tasks.splice(i, 1);
+        task[0].completed = !task[0].completed;
+        const tasks:ITask[] = [...this.state.tasks, ...task];
+        this.setState({tasks}) 
+    }
+
     public renderTasks():JSX.Element[] {
         return (
             this.state.tasks.map((task:ITask, index:number) => {
@@ -40,6 +47,7 @@ export class App extends React.Component<{}, IState> {
                     <div key={task.id}>
                     <span> {task.value} </span>
                     <Button compact circular toggle size='tiny' color='violet' onClick={() => this.deleteTask(task.id) }>Delete</Button>
+                    <Button compact circular toggle size='tiny' color='blue' onClick={() => this.toggleCompleted(index) }>Done</Button>
                         <Divider fitted />
                     </div>
                 )
