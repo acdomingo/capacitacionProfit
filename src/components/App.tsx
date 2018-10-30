@@ -1,9 +1,10 @@
 import React from 'react';
 import { Divider, Segment, Container, Button, Form } from 'semantic-ui-react';
+import { string, number } from 'prop-types';
 
 export class App extends React.Component<{}, IState> {
 
-    constructor (props: {}) {
+    public constructor (props: {}) {
         super(props);
         this.state = {
             currentTask: '',
@@ -11,7 +12,7 @@ export class App extends React.Component<{}, IState> {
         }
     }
 
-    handleSubmit(e: any) {
+    public handleSubmit(e: React.FormEvent<HTMLElement>) :void {
         e.preventDefault();
         this.setState({
             currentTask: '',
@@ -22,10 +23,22 @@ export class App extends React.Component<{}, IState> {
         })
     }
 
-    render() {
+    public renderTasks():JSX.Element[] {
+        return (
+            this.state.tasks.map((task:string, index:number) => {
+                return (
+                    <div key={index}> {task}
+                        <Divider fitted />
+                    </div>
+                )
+            })
+        )
+    }
+
+     public render():JSX.Element {
         console.log(this.state);
         return (
-            <div className="wrapper">
+            <div>
                 <Segment>
                     <div> <h1>React Typescript Todo List</h1> </div>
                     <Divider section />
@@ -38,12 +51,19 @@ export class App extends React.Component<{}, IState> {
                                             value= { this.state.currentTask }
                                             onChange={ (e) => this.setState({ currentTask: e.target.value })} />
                                     </Form.Input>
-                                    <Button type='submit' color='pink' size='tiny'>Add task</Button>
+                                    <Button toggle type='submit' color='pink' size='tiny'>Add task</Button>
                                 </div>
                             </Form.Group>
                         </Form>
                     </Container>
                 </Segment>
+                <Container>
+                    <Segment raised>
+                        <section>
+                            { this.renderTasks() }
+                        </section>
+                    </Segment>
+                </Container>
             </div>
         )
     }

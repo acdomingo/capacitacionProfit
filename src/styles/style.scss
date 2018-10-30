@@ -7,15 +7,11 @@ body {
     background: $backGround-pink;
 }
 
-.wrapper {
-    background: $backGround-pink;
+.formulario {
+    width: 50%;
+    display: inline-flex;
 }
 
-.formulario {
-    font-family: "Helvetica Neue", Helvetica, Arial, Sans-serif;
-    font-size: 14 px;
+section {
     width: 50%;
-    line-height: 1.3 rem;
-    background: $backGround-pink;
-    display: inline-flex;
 }
