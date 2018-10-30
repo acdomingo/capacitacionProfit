@@ -44,10 +44,10 @@ export class App extends React.Component<{}, IState> {
         return (
             this.state.tasks.map((task:ITask, index:number) => {
                 return (
-                    <div key={task.id}>
-                    <span> {task.value} </span>
+                    <div key={task.id} className='tdl-task'>
+                    <span className={task.completed? 'is-completed' : ''}> {task.value} </span>
                     <Button compact circular toggle size='tiny' color='violet' onClick={() => this.deleteTask(task.id) }>Delete</Button>
-                    <Button compact circular toggle size='tiny' color='blue' onClick={() => this.toggleCompleted(index) }>Done</Button>
+                    <Button compact circular toggle size='tiny' color={task.completed? 'blue' : 'purple'} onClick={() => this.toggleCompleted(index) }>{task.completed? 'Undo' : 'Done'}</Button>
                         <Divider fitted />
                     </div>
                 )
@@ -68,6 +68,7 @@ export class App extends React.Component<{}, IState> {
                                 <div className="formulario">
                                     <Form.Input width={8}>
                                     <input  placeholder='New task'
+                                            className= 'tdl-input'
                                             value= { this.state.currentTask }
                                             onChange={ (e) => this.setState({ currentTask: e.target.value })} />
                                     </Form.Input>

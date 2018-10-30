@@ -15,3 +15,13 @@ body {
 section {
     width: 50%;
 }
+
+.is-completed {
+    text-decoration: line-through;
+    text-decoration-color: blue;
+    color: #12045e
+}
+
+.tdl-task {
+    font-weight: bolder
+}
