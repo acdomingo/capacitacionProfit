@@ -4,6 +4,7 @@
   "description": "Awesome project developed with TypeORM.",
   "devDependencies": {
     "@gql2ts/types": "^1.8.0",
+    "@types/aws-lambda": "^8.10.15",
     "@types/bcryptjs": "^2.4.1",
     "@types/connect-redis": "^0.0.7",
     "@types/express-rate-limit": "^2.9.3",
