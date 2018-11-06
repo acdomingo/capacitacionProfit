@@ -16,16 +16,29 @@ interface IProps {
 class C extends React.PureComponent <FormikProps <IFormValues> & IProps> {
 
     render() {
-        const {handleChange, handleSubmit, handleBlur} = this.props;
+       const {values, handleChange, handleSubmit, handleBlur} = this.props;
 
         return (
-            <div style={{display: 'flex'}}>
+            <form style={{display: 'flex'}} onSubmit = {handleSubmit}>
                 <div style={{width: 500, margin: 'auto'}}>
                     <FormItem>
-                        <Input name='email' prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />} placeholder="Email" />
+                        <Input name='email' 
+                        prefix={<Icon type="user" 
+                        style={{ color: 'rgba(0,0,0,.25)' }} />} 
+                        placeholder="Email"
+                        value = {values.email}
+                        onChange = {handleChange}
+                        onBlur = {handleBlur} />
                     </FormItem>
                     <FormItem>
-                        <Input name='password' prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />} type="password" placeholder="Password" />
+                        <Input name='password' 
+                        prefix={<Icon type="lock" 
+                        style={{ color: 'rgba(0,0,0,.25)' }} />} 
+                        type="password" 
+                        placeholder="Password"
+                        value = {values.password}
+                        onChange = {handleChange}
+                        onBlur = {handleBlur} />
                     </FormItem>
                     <FormItem>
                         <a className="login-form-forgot" href="">Forgot password</a>
@@ -39,7 +52,7 @@ class C extends React.PureComponent <FormikProps <IFormValues> & IProps> {
                         Or <a href="">Login now!</a>
                     </FormItem>
                 </div>
-            </div>
+            </form>
         );
     }
 }

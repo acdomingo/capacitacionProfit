@@ -4,13 +4,14 @@ import {RegisterView} from './ui/RegisterView';
 
 export class RegisterConnector extends React.PureComponent {
 
-    dummySubmit = (values: any) => {
+    dummySubmit = async (values: any) => {
         console.log(values);
+        return null
     }
 
     render () {
         return (
-            <RegisterView submit={} />
+            <RegisterView submit={this.dummySubmit} />
         );
     } 
 }
